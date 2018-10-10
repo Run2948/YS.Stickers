@@ -9,9 +9,9 @@
 
     var builder = {
         debug: function(o){
-            if (window.console && window.console.log){
-                console.log(o);
-            }
+            // if (window.console && window.console.log){
+            //     console.log(o);
+            // }
         },
         fire: function(key, elem, opts){
             if (typeof key == 'string') {
@@ -61,7 +61,7 @@
                     dataTransfer.setData("Text", 'kbs-drag-active');
                 });
                 area.on('dblclick', '.kbs-label', function(e){
-                    console.log(this);
+                    //console.log(this);
                     var _this = this;
                     if (window.confirm('确定要删除当前标记吗?')){
                         $(this).remove();
