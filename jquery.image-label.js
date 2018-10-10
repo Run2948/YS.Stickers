@@ -28,7 +28,7 @@
          */
         init: function(elem){
             // TODO:页面刷新时需不需要进行初始化？若不进行初始化，下次加载结果依然会存在。
-            localStorage.setItem('labelArr', '[]');
+            //localStorage.setItem('labelArr', '[]');
             if ($(elem).parent('.kbs-label-area').length==0){
                 $(elem).wrap('<div class="kbs-label-area"></div>');
                 area = $(elem).parent('.kbs-label-area');
