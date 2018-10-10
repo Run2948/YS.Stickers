@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-ch">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图片标注</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://cdn.bootcss.com/jquery-contextmenu/3.0.0-beta.2/jquery.contextMenu.min.css" rel="stylesheet">
+    <link href="jquery.image-label.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="btn-group-vertical" style="position:absolute;top:5%;left:5%;">
+        <!-- <button id="btn_TXT" type="button" class="btn btn-success">纯标记</button>
+        <button id="btn_XFS" type="button" class="btn btn-success">消防栓</button>
+        <button id="btn_XFC" type="button" class="btn btn-success">消防车</button> -->
+
+        <button id="btn_SE" type="button" class="btn btn-success">吃饭</button>
+        <button id="btn_XI" type="button" class="btn btn-success">睡觉</button>
+        <button id="btn_WE" type="button" class="btn btn-success">打豆豆</button>
+
+        <button id="btnClear" type="button" class="btn btn-danger">清除</button>
+        <button id="btnSave" type="button" class="btn btn-primary">保存</button>
+    </div>
+    <img src="demo.jpg" style="width:1000px;">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/json2/20160511/json2.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-contextmenu/3.0.0-beta.2/jquery.contextMenu.min.js"></script>
+    <script src="jquery.image-label.js"></script>
+    <script>
+        //初始化
+        $('img').imageLabel();
+        //加载数据
+        var _arr = JSON.parse(localStorage.getItem('labelArr'));
+        $('img').imageLabel('loadData', {
+            data: _arr
+        });
+        //create
+        $('#btn_TXT').click(function () {
+            //$('img').imageLabel('create_text');
+            $('img').imageLabel('create_text', {
+                text: '文本'
+            });
+        });
+        
+        $('#btn_XFS').click(function () {
+            //$('img').imageLabel('create_icon');
+            $('img').imageLabel('create_icon', {
+                text: './icons/xfx.png'
+            });
+        });
+        $('#btn_XFC').click(function () {
+            //$('img').imageLabel('create_icon');
+            $('img').imageLabel('create_icon', {
+                text: './icons/xfc.png'
+            });
+        });
+
+        $('#btn_SE').click(function () {
+            //$('img').imageLabel('create_icon');
+            $('img').imageLabel('create_icon', {
+                text: './icons/se.png'
+            });
+        });
+
+        $('#btn_XI').click(function () {
+            //$('img').imageLabel('create_icon');
+            $('img').imageLabel('create_icon', {
+                text: './icons/xiang.png'
+            });
+        });
+
+        $('#btn_WE').click(function () {
+            //$('img').imageLabel('create_icon');
+            $('img').imageLabel('create_icon', {
+                text: './icons/wei.png'
+            });
+        });
+
+        //clear
+        $('#btnClear').click(function () {
+            $('img').imageLabel('clear');
+            $('#btnSave').click();
+        });
+        //save
+        $('#btnSave').click(function () {
+            var data = $('img').imageLabel('getData');
+            console.log(data.length == 0)
+            localStorage.setItem('labelArr', JSON.stringify(data));
+        });
+    </script>
+</body>
+
+</html>
