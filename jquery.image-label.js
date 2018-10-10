@@ -27,6 +27,8 @@
          * @param elem img 元素
          */
         init: function(elem){
+            // TODO:页面刷新时需不需要进行初始化？若不进行初始化，下次加载结果依然会存在。
+            localStorage.setItem('labelArr', '[]');
             if ($(elem).parent('.kbs-label-area').length==0){
                 $(elem).wrap('<div class="kbs-label-area"></div>');
                 area = $(elem).parent('.kbs-label-area');
@@ -156,6 +158,37 @@
                     });
                 }
             }    
+        },
+        shot:function(elem, opts){
+            opts = $.extend({
+                text: 'down_html'
+            }, opts);
+            html2canvas(document.querySelector("#" + opts.text), {
+                allowTaint: true,
+                height: $("#" + opts.text).outerHeight() + 150
+            }).then(function(canvas) {
+                //生成base64图片数据
+                var type = 'png';
+                var imgData = canvas.toDataURL(type);
+                var _fixType = function(type) {
+                    type = type.toLowerCase().replace(/jpg/i, 'jpeg');
+                    var r = type.match(/png|jpeg|bmp|gif/)[0];
+                    return 'image/' + r;
+                };
+                // 加工image data，替换mime type
+                imgData = imgData.replace(_fixType(type), 'image/octet-stream');
+                var saveFile = function(data, filename) {
+                    var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+                    save_link.href = data;
+                    save_link.download = filename;
+                    var event = document.createEvent('MouseEvents');
+                    event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                    save_link.dispatchEvent(event);
+                };
+                // 下载后的图片名
+                var filename = (new Date()).getTime() + '.' + type;
+                saveFile(imgData, filename);
+            });
         }
     }
 

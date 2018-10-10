@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>图片标注</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://cdn.bootcss.com/jquery-contextmenu/3.0.0-beta.2/jquery.contextMenu.min.css" rel="stylesheet">
     <link href="jquery.image-label.css" rel="stylesheet">
 </head>
 
@@ -21,25 +20,25 @@
 
         <button id="btnClear" type="button" class="btn btn-success">清除</button>
         <button id="btnSave" type="button" class="btn btn-primary">保存</button>
-        <button onclick="screenshots('down_html')" type="button" class="btn btn-primary">下载</button>
+        <button id="btnShot" type="button" class="btn btn-primary">下载</button>
     </div>
     <div id="down_html">
         <img src="demo.jpg" style="width:1000px;">
     </div>
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/json2/20160511/json2.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery-contextmenu/3.0.0-beta.2/jquery.contextMenu.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script>
-    <script src="jquery.screenshots.js"></script>
     <script src="jquery.image-label.js"></script>
     <script>
         //初始化
         $('img').imageLabel();
+
         //加载数据
         var _arr = JSON.parse(localStorage.getItem('labelArr'));
         $('img').imageLabel('loadData', {
             data: _arr
         });
+
         //create
         $('#btn_TXT').click(function () {
             //$('img').imageLabel('create_text');
@@ -87,12 +86,19 @@
             $('img').imageLabel('clear');
             $('#btnSave').click();
         });
+
         //save
         $('#btnSave').click(function () {
             var data = $('img').imageLabel('getData');
-            //console.log(data.length == 0)
             localStorage.setItem('labelArr', JSON.stringify(data));
         });
+
+        //shot
+        $('#btnShot').click(function () {
+            $('img').imageLabel('shot',{
+                text: 'down_html'
+            });
+        });        
     </script>
 </body>
 
