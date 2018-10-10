@@ -9,9 +9,9 @@
 
     var builder = {
         debug: function(o){
-            // if (window.console && window.console.log){
-            //     console.log(o);
-            // }
+            if (window.console && window.console.log){
+                console.log(o);
+            }
         },
         fire: function(key, elem, opts){
             if (typeof key == 'string') {
