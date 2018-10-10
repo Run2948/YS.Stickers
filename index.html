@@ -19,13 +19,18 @@
         <button id="btn_XI" type="button" class="btn btn-success">睡觉</button>
         <button id="btn_WE" type="button" class="btn btn-success">打豆豆</button>
 
-        <button id="btnClear" type="button" class="btn btn-danger">清除</button>
+        <button id="btnClear" type="button" class="btn btn-success">清除</button>
         <button id="btnSave" type="button" class="btn btn-primary">保存</button>
+        <button onclick="screenshots('down_html')" type="button" class="btn btn-primary">下载</button>
     </div>
-    <img src="demo.jpg" style="width:1000px;">
+    <div id="down_html">
+        <img src="demo.jpg" style="width:1000px;">
+    </div>
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/json2/20160511/json2.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery-contextmenu/3.0.0-beta.2/jquery.contextMenu.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+    <script src="jquery.screenshots.js"></script>
     <script src="jquery.image-label.js"></script>
     <script>
         //初始化

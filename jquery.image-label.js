@@ -63,7 +63,7 @@
                 area.on('dblclick', '.kbs-label', function(e){
                     console.log(this);
                     var _this = this;
-                    if (window.confirm('确定要删除当前标记吗?如果确定，请手动点击【保存】按钮来保存删除状态保存。否则只会将当前标记从图片中隐藏。')){
+                    if (window.confirm('确定要删除当前标记吗?')){
                         $(this).remove();
                     }
                 });
