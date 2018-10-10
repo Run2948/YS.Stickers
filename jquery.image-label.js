@@ -159,7 +159,7 @@
                 }
             }    
         },
-        shot:function(elem, opts){
+        shot: function(elem, opts){
             opts = $.extend({
                 text: 'down_html'
             }, opts);
