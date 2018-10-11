@@ -34,3 +34,9 @@
 
 .kbs-label-black{background-color:rgba(0, 0, 0, 0.75);color:#ffffff;}
 .kbs-label-black::after, .kbs-label-black::before {border-color: rgba(0, 0, 0, 0.75);}
+
+.canvasDiv {
+    position:absolute;
+    left:7%;
+    width:100%;
+}
