@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <title>图片标注</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="jquery.image-label.css" rel="stylesheet">
+    <link href="css/jquery.image-label.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="btn-group-vertical" style="position:absolute;top:5%;left:5%;">
-        <!-- <button id="btn_TXT" type="button" class="btn btn-success">纯标记</button>
-        <button id="btn_XFS" type="button" class="btn btn-success">消防栓</button>
-        <button id="btn_XFC" type="button" class="btn btn-success">消防车</button> -->
+        <!-- 
+            <button id="btn_TXT" type="button" class="btn btn-success">纯标记</button>
+            <button id="btn_XFS" type="button" class="btn btn-success">消防栓</button>
+            <button id="btn_XFC" type="button" class="btn btn-success">消防车</button>
+        -->
+
+        <button data-type="arrow" type="button" class="btn btn-success">箭头</button>
 
         <button id="btn_SE" type="button" class="btn btn-success">吃饭</button>
         <button id="btn_XI" type="button" class="btn btn-success">睡觉</button>
@@ -22,13 +26,13 @@
         <button id="btnSave" type="button" class="btn btn-primary">保存</button>
         <button id="btnShot" type="button" class="btn btn-primary">下载</button>
     </div>
-    <div id="down_html">
-        <img src="demo.jpg" style="width:1000px;">
+    <div id="down_html" class="down_html">
+        <img src="images/demo.jpg" style="width:1000px;">
     </div>
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/json2/20160511/json2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script>
-    <script src="jquery.image-label.js"></script>
+    <script src="js/jquery.image-label.js"></script>
     <script>
         //初始化
         $('img').imageLabel();
@@ -66,14 +70,12 @@
                 text: './icons/se.png'
             });
         });
-
         $('#btn_XI').click(function () {
             //$('img').imageLabel('create_icon');
             $('img').imageLabel('create_icon', {
                 text: './icons/xiang.png'
             });
         });
-
         $('#btn_WE').click(function () {
             //$('img').imageLabel('create_icon');
             $('img').imageLabel('create_icon', {
