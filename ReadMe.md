@@ -12,8 +12,8 @@
 
 ## 演示：
 
-![图片演示](./screenshots/1.png)
-了解更多详情[点击这里](https://github.com/Run2948/YS.Stickers/index.html)
+![图片演示](./lib/1.png)
+了解更多详情[点击这里](https://github.com/Run2948/YS.Stickers/dadoudou/index.html)
 
 ### 日常备忘笔记：上传本地项目到 Git
 
